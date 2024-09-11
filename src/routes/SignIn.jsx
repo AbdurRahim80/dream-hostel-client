@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../components/provider/AuthProvider";
 import { Helmet } from "react-helmet";
+import axios from "axios";
 
 const SignIn = () => {
 
@@ -39,8 +40,15 @@ const SignIn = () => {
         // sign in with email and password
         userSignIn(email, password)
             .then(result => {
+                const loggInUser = result.user;
+                // console.log(loggInUser);
+                const user = {email}
+                axios.post('https://dream-hostel-server.vercel.app/jwt', user)
+                .then(()=> {
+                    // console.log(res.data);
+                })
                 toast.success("Sign In successful")
-                console.log(result.user);
+                // console.log(result.user);
             })
             .catch(error => {
                 toast.error(error.message);
@@ -95,10 +103,10 @@ const SignIn = () => {
                     </div>
                     <div className="space-y-2">
                         <div>
-                            <button className="w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-500 dark:text-gray-50 bg-green-500">Sign up</button>
+                            <button className="w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-500 dark:text-gray-50 bg-green-500">Sign In</button>
                         </div>
                         <p className="px-6  text-sm text-center dark:text-gray-600">Don't have an account yet?
-                            <Link rel="noopener noreferrer" to="/register" className="hover:underline dark:text-violet-500 ml-2">Sign up</Link>.
+                            <Link rel="noopener noreferrer" to="/register" className="hover:underline dark:text-violet-500 ml-2">Sign In</Link>.
                         </p>
                     </div>
                 </form>

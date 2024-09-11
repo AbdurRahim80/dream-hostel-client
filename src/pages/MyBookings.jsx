@@ -7,7 +7,7 @@ import { Helmet } from "react-helmet";
 const MyBookings = () => {
     const { user} = useContext(AuthContext);
     const [bookingData, setBookingData] = useState(useEffect(() => {
-        fetch(`http://localhost:5000/bookings/${user?.email}`)
+        fetch(`https://dream-hostel-server.vercel.app/bookings/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 console.log("data", data);
@@ -37,7 +37,7 @@ const MyBookings = () => {
     //         if (result.isConfirmed) {
 
 
-    //             fetch(`http://localhost:5000/bookings/${_id}`, {
+    //             fetch(`https://dream-hostel-server.vercel.app/bookings/${_id}`, {
     //                 method: 'DELETE'
     //             })
     //                 .then(res => res.json())
@@ -72,7 +72,7 @@ const MyBookings = () => {
             if (result.isConfirmed) {
 
 
-                fetch(`http://localhost:5000/bookings/${_id}`, {
+                fetch(`https://dream-hostel-server.vercel.app/bookings/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

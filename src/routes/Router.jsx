@@ -21,12 +21,12 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home/>,
-                loader: ()=> fetch('http://localhost:5000/rooms')
+                loader: ()=> fetch('https://dream-hostel-server.vercel.app/rooms')
             },
             {
                 path:'/rooms',
                 element:<PrivateRoute> <Rooms/></PrivateRoute>,
-                loader: ()=> fetch('http://localhost:5000/rooms')
+                loader: ()=> fetch('https://dream-hostel-server.vercel.app/rooms')
             },
             {
                 path:'/mybookings',
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
             {
                 path:'/roomdetail/:id',
                 element: <RoomsDetails/>,
-                loader: ({params})=> fetch(`http://localhost:5000/rooms/${params?.id}`)
+                loader: ({params})=> fetch(`https://dream-hostel-server.vercel.app/rooms/${params?.id}`)
             },
             {
                 path: '/update',

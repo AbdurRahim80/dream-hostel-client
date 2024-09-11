@@ -25,7 +25,7 @@ const SignUp = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password);
+        // console.log(name, email, password);
         //password validation
         if (password.length < 6) {
             toast.error("Length must be at least 6 character");
@@ -48,7 +48,7 @@ const SignUp = () => {
                     displayName: name
                 })
                 toast.success("Sing Up successful")
-                console.log(result.user);
+                // console.log(result.user);
             })
             .catch(error => {
                 const element = error.message.split(" ")
@@ -114,7 +114,7 @@ const SignUp = () => {
                             <button className="w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50 bg-green-500">Sign up</button>
                         </div>
                         <p className="px-6  text-sm text-center dark:text-gray-600">Already have an account.
-                            <Link rel="noopener noreferrer" to="/signin" className="hover:underline dark:text-violet-600 ml-2">Sign in</Link>.
+                            <Link rel="noopener noreferrer" to="/signin" className="hover:underline dark:text-violet-600 ml-2">Sign up</Link>.
                         </p>
                     </div>
                 </form>

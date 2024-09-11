@@ -11,7 +11,7 @@ const RoomsDetails = () => {
     const detailData = useLoaderData();
     const [startDate, setStartDate] = useState(new Date());
     const { roomSize, roomDescription, pricePerNight, availability, roomImage, specialOffers, reviews } = detailData;
-    console.log(detailData);
+    // console.log(detailData);
     //     ● RoomDescription
     //  ● Price per Night
     //  ● RoomSize
@@ -26,7 +26,7 @@ const RoomsDetails = () => {
         e.preventDefault();
         const email = user?.email;
         const bookings = { roomImage, startDate, roomDescription, email, specialOffers, reviews, availability, pricePerNight }
-        console.log(bookings);
+        // console.log(bookings);
 
         Swal.fire({
             title: "Are you sure?",
@@ -39,7 +39,7 @@ const RoomsDetails = () => {
             confirmButtonText: "Confirm"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch('http://localhost:5000/bookings', {
+                fetch('https://dream-hostel-server.vercel.app/bookings', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -48,7 +48,7 @@ const RoomsDetails = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log("data", data);
+                        // console.log("data", data);
                         if (data?.insertedId) {
                             Swal.fire({
                                 title: "Book",

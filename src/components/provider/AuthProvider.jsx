@@ -10,6 +10,17 @@ const AuthProvider = ({children}) => {
 
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState({})
+    const [room, setRoom] = useState();
+
+    useEffect(()=>{
+        fetch('https://dream-hostel-server.vercel.app/bookings')
+        .then(res=>res.json())
+        .then(data=>{
+            data.map(rm => setRoom(rm))
+            
+        })
+
+    },[])
 
       // singUp email and password
       const createUserSignUpWithEmailPassword =(email, password)=>{
@@ -58,7 +69,8 @@ const AuthProvider = ({children}) => {
         loading,
         updateUserProfile,
         google,
-        logOut
+        logOut,
+        room
     }
     
     return (
